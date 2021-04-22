@@ -8,7 +8,55 @@
     <title>Chat App</title>
 </head>
 <body>
-    <p>Hello World</p>
+    <main>
+        <header class="app-header">
+            <h3>App Name</h3>
+         </header>
+         <section class="user-interface">
+             <div id="user-login">
+                <form >
+                    <label for="lb-name">Bitte ihren Name eingeben</label> <br>
+                    <input type="text" name="name" id="name" placeholder="hier ame eingeben" autocomplete="off"> <br>
+                    <label for="lb-pw">Bitte passwort eingeben</label> <br>
+                    <input type="text" name="pw" id="pw"placeholder="Type your msg hier..........." autocomplete="off"> <br>
+                    <button id="btn-send">Bestätigen</button>
+                </form>
+             </div>
+         </section>
+         <section class="message">
+             <div class="msg-sent">
+                 <div class="msg-from">
+                     <h5>name</h5>
+                 </div>
+                 <div class="msg-text">
+                     nachrichten text werde hier angezeigt
+                 </div>
+
+                 <div class="msg-time">
+                     Aktuelle datum uhrzeit
+                 </div>
+                </div>
+                <div class="msg-sent">
+
+                    <div class="msg-recived">
+                        <h5>name</h5>
+                    </div>
+                    <div class="msg-text">
+                        nachrichten text werde hier angezeigt
+                    </div>
+   
+                    <div class="msg-time">
+                        Aktuelle datum uhrzeit
+                    </div>
+                   </div>
+                <input type="text" name="msg" id="msg"placeholder="schreibe deine nachrichten hier..........." autocomplete="off"> <br>
+                <button id="btn-send">Senden</button>
+
+             
+         </section>
+        
+    </main>
+    
     <script src="./script/script.js"></script>
 </body>
 </html>
