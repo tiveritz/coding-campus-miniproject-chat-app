@@ -6,25 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
     <title>Chat App</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    
 </head>
 <body>
     <main>
-        <header class="app-header">
-            <h3>App Name</h3>
+      
+         <header class="app-header">
+            <h3 style="text-align: center;">WECHAT</h3>
+            
+            <i class='fas fa-comment'>&#xf075;</i>
+            <i class='fas fa-comment' style='font-size:24px'>&#xf075;</i>
+            <i class='fas fa-comment' style='font-size:36px'>&#xf075;</i>
+            <i class='fas fa-comment' style='font-size:40px;color:red'>&#xf075;</i>
+            <br>
+            
+
          </header>
          <section class="user-interface">
              <div id="user-login">
+            
                 <form >
-                    <label for="lb-name">Bitte ihren Name eingeben</label> <br>
+                    <label for="lb-name">Name eingeben</label> <br>
                     <input type="text" name="name" id="name" placeholder="hier ame eingeben" autocomplete="off"> <br>
-                    <label for="lb-pw">Bitte passwort eingeben</label> <br>
+                    <label for="lb-pw">passwort eingeben</label> <br>
                     <input type="text" name="pw" id="pw"placeholder="Type your msg hier..........." autocomplete="off"> <br>
                     <button id="btn-send">Bestätigen</button>
                 </form>
              </div>
          </section>
+         <div class="chat-area">
+            <div class="main-warpper">
+                <div class="chat-content">
          <section class="message">
-             <div class="msg-sent">
+             <div class="msg-row msg-sent">
                  <div class="msg-from">
                      <h5>name</h5>
                  </div>
@@ -33,29 +48,40 @@
                  </div>
 
                  <div class="msg-time">
-                     Aktuelle datum uhrzeit
+                    exp:12.12.2021
                  </div>
                 </div>
-                <div class="msg-sent">
 
-                    <div class="msg-recived">
+                    <div class="msg-row msg-recived">
                         <h5>name</h5>
-                    </div>
                     <div class="msg-text">
                         nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+                        nachrichten text werde hier angezeigt
+
                     </div>
    
                     <div class="msg-time">
-                        Aktuelle datum uhrzeit
+                       exp:01.01.2021
                     </div>
                    </div>
+                </section>
+                </div>
+                <form class="msg-inp">
                 <input type="text" name="msg" id="msg"placeholder="schreibe deine nachrichten hier..........." autocomplete="off"> <br>
                 <button id="btn-send">Senden</button>
-
+            </form>
              
-         </section>
-        
+       
+        </div>
+        </div>
     </main>
+   
     
     <script src="./script/script.js"></script>
 </body>

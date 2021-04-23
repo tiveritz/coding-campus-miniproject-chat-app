@@ -1,6 +1,6 @@
 body {
     background: grey;
-    min-height: 100ch;
+    min-height: 30ch;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,15 +9,140 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0; 
-    box-sizing: border-boxs;
+    box-sizing: border-box;
+    max-height: 700px;
 }
 
 main{
     background-color: rgb(170, 170, 209);
-    width: 25%;
+    max-width: 50ch;
+    width: 100%;
     border-radius: 1rem;
     border: 0.5rem solid rgb(36, 36, 51);
     box-shadow: 0.5rem 1rem 1.5rem black;
     overflow: hidden;
 
+
+}
+
+.chat-area{
+        padding: 1ch;
+    
+}
+.main-warpper{
+    width: 100%;
+    height: 30ch;
+}
+    .chat-content{
+        width: 100%;
+        height: 25ch;
+        background-color: whitesmoke;
+        overflow-y: auto;
+        padding: 0 4ch;
+        border-radius: 0.25rem;
+        overflow: auto;
+}
+.app-header{
+    min-height: 5ch;
+    background-color:  rgb(134, 134, 184);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.1rem solid black;
+ 
+  
+}
+
+.user-interface{
+    width: auto;
+    height: auto;
+    background-color: rgb(170, 170, 209);
+    padding: 0 1ch;
+    border-radius: 0.25rem;
+    border-bottom: 0.1rem solid black;
+}
+
+.user-interface input{
+    border-radius: 0.5rem;
+    border-color: black;
+    height: 4ch;
+ 
+}
+.user-interface button{
+    border-radius: 0.5rem;
+    border-color: black;
+    font-size: large;
+    margin: 1rem 2rem;
+
+   
+ 
+}
+.msg-row{
+    
+    display: grid;
+    grid-template-columns: 30%;
+    margin-bottom: 10px;
+    
+
+}
+.chat-container .massage{
+    width: 100%;
+    min-height:  25ch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+   
+
+
+}
+.msg-sent{
+    display: grid;
+
+    grid-template-columns: 70%;
+    margin-bottom: 2ch;
+    justify-content: start;
+    justify-items: start;
+    background-color:rgb(250, 234, 234);;
+    border-radius: 0.5rem;
+    border: 0.1rem solid black;
+    box-shadow: 0.2rem 0.5rem 0.5rem rgb(128, 127, 185);
+    padding: 1ch;
+}
+.msg-recived{
+    display: grid;
+    grid-template-columns: 70%;
+    margin-bottom: 2sch;
+    justify-content: end;
+    justify-items: end;
+
+    background-color:rgb(250, 234, 234);;
+    border-radius: 0.5rem;
+    border: 0.1rem solid black;
+    box-shadow: 0.2rem 0.5rem 0.5rem green;
+    padding: 1ch;
+}
+.msg-time{
+    color: gray;
+    font-size: 0.9ch;
+}
+
+.msg-inp{
+    width: 100%;
+    height: 6ch;
+    display: flex;
+    align-items: center;
+    border: 0.2rem solid  rgb(134, 134, 184);
+
+
+
+}
+.msg-inp input{
+    flex:4;
+    height: 6ch;
+}
+.msg-inp button{
+    flex:1;
+    height: 6ch;
+    border: 1rem solid  rgb(134, 134, 184);
 }
