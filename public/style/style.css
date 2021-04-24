@@ -1,23 +1,22 @@
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+} 
+ 
  body {
+    width: 100vw;
+    height: 100vh;
     background: grey;
-    min-height: 30ch;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-* {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-    max-height: 700px;
-}
-
 main {
     background-color: rgb(170, 170, 209);
     max-width: 50ch;
-    width: 100%;
     border-radius: 1rem;
     border: 0.5rem solid rgb(36, 36, 51);
     box-shadow: 0.5rem 1rem 1.5rem black;
