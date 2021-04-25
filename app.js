@@ -8,9 +8,8 @@ app.use(express.static('public'))  // Serve static files
 app.use(express.json())  // Parse JSON body
 app.use(express.urlencoded({ extended: true })) // Get data from body
 
-// Define the path variable - create absolute path from built-in path module
+// Define path variable - creates absolute path from built-in path module
 var path = require('path');
-const { send } = require('process')
 
 // Global application variables
 var username = ''
@@ -25,7 +24,7 @@ app.post('/', (req, res) => {
     username = req.body.name
 })
 
-// Process login form
+// AJAX for chat
 app.get('/chatdata', (req, res) => {
     let response  = {
         name : username,
@@ -34,7 +33,7 @@ app.get('/chatdata', (req, res) => {
     res.json(response)
 })
 
-// Receive a new message
+// AJAX for sending message
 app.post('/newmessage', (req, res) => {
     messages.push(req.body['message'])
     res.sendStatus(200)
@@ -43,5 +42,5 @@ app.post('/newmessage', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at http:// localhost:${port}`)
 })

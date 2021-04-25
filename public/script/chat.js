@@ -1,3 +1,4 @@
+// Build page content
 getData();
 
 function getData() {
@@ -6,26 +7,26 @@ function getData() {
     .then(function(data) {
         document.querySelector('#name').innerHTML = data['name']
         document.querySelector('#messages').innerHTML = ''
-    
-        var messages = data['messages']
-    
-        for (i = messages.length-1; i >= 0; i--) {data['messages']
-            var msgContainer = document.createElement("p")
-            var content = document.createTextNode(messages[i])
-            msgContainer.appendChild(content)
-    
-            document.querySelector('#messages').appendChild(msgContainer)
-        }
+        addMessagesToDOM(data['messages'])
     })
 }
 
-var messageForm = document.querySelector('#message-form')
+function addMessagesToDOM(messages) {
+    for (i = 0; i < messages.length; i++) {
+        var msgContainer = document.createElement("div")
+        msgContainer.className ="msg-row msg-sent"
+        var content = document.createTextNode(messages[i])
+        msgContainer.appendChild(content)
+        document.querySelector('#messages').appendChild(msgContainer)
+    }
+}
 
-messageForm.addEventListener('submit', function(e) {
-    e.preventDefault()
-
+// POST new message
+// To prevent the reload of the page the form uses input type button instead
+// of submit
+function postMessage() {
     var message = {
-        "message" : document.querySelector('#message').value
+        "message" : document.querySelector('#msg').value
     }
 
     fetch('http://localhost:3000/newmessage', {
@@ -35,6 +36,4 @@ messageForm.addEventListener('submit', function(e) {
     })
 
     getData()
-})
-
-//JSON.stringify({ message : "lol"})
+}
