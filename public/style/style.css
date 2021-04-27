@@ -28,7 +28,7 @@ main {
     justify-content: space-between;
 }
 
-#main-warpper {
+#main-wrapper {
     height: 64vh;
     overflow-y: scroll;
 }

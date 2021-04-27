@@ -3,15 +3,17 @@ refreshChatData();
 writeTimeToDOM()
 
 // Refresh chat and time periodically
-let interval = window.setInterval(function() {
+window.setInterval(function() {
     writeTimeToDOM()
     refreshChatData();
+    scrollToChatBottom()
 }, 10000)
 
-// Automatically scrolls to bottom of chat
-let chat = document.querySelector('#container');
-chat.scrollTop = chat.scrollHeight;
-
+function scrollToChatBottom() {
+    // Scroll to bottom of chat
+    let chat = document.querySelector('#main-wrapper');
+    chat.scrollTop = chat.scrollHeight;
+}
 
 function writeTimeToDOM() {
     let now = new Date()
@@ -55,7 +57,7 @@ function postMessage() {
         method: 'POST',
         body: JSON.stringify(message),
         headers: { "Content-Type": "application/json" }
+    }).then(function(data) {
+        refreshChatData()
     })
-
-    refreshChatData()
 }
