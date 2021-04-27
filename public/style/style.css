@@ -28,7 +28,7 @@ main {
     justify-content: space-between;
 }
 
-#main-warpper {
+#main-wrapper {
     height: 64vh;
     overflow-y: scroll;
 }
@@ -136,4 +136,8 @@ textarea {
     border: none;
     padding: 1ch;
     background: back
+}
+
+#refresh {
+    padding: 2ch;
 }
