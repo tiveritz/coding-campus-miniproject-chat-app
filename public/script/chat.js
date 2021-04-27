@@ -1,7 +1,29 @@
 // Build page content
-getData();
+refreshChatData();
+writeTimeToDOM()
 
-function getData() {
+// Refresh chat and time periodically
+let interval = window.setInterval(function() {
+    writeTimeToDOM()
+    refreshChatData();
+}, 10000)
+
+// Automatically scrolls to bottom of chat
+let chat = document.querySelector('#container');
+chat.scrollTop = chat.scrollHeight;
+
+
+function writeTimeToDOM() {
+    let now = new Date()
+    let h = (now.getHours() < 10 ? '0' : '') + now.getHours()
+    let m = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes()
+    let s = (now.getSeconds() < 10 ? '0' : '') + now.getSeconds()
+    let time = h + ':' + m + ':' + s
+    
+    document.querySelector('#refresh-time').innerHTML = time;
+}
+
+function refreshChatData() {
     fetch('http://localhost:3000/chatdata')
     .then(response => response.json())
     .then(function(data) {
@@ -35,5 +57,5 @@ function postMessage() {
         headers: { "Content-Type": "application/json" }
     })
 
-    getData()
+    refreshChatData()
 }

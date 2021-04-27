@@ -137,3 +137,7 @@ textarea {
     padding: 1ch;
     background: back
 }
+
+#refresh {
+    padding: 2ch;
+}
