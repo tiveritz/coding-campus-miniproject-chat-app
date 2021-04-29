@@ -3,6 +3,22 @@ const cors = require('cors')
 const app = express()
 const port = 3000
 
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host        : 'localhost',
+    user        : 'chat',
+    password    : 'pass'
+});
+
+connection.connect();
+
+/*connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+  console.log('The solution is: ', rows[0].solution);
+});*/
+
+connection.end();
+
 app.use(cors())  // Allow cross origin resource sharing
 app.use(express.static('public'))  // Serve static files
 app.use(express.json())  // Parse JSON body
