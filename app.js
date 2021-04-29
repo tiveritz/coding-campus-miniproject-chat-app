@@ -25,49 +25,62 @@ app.get('/chat', (req, res) => {
 
 // AJAX for chat data
 app.get('/chatdata', (req, res) => {
-    var response = []
-
     const connection = mysql.createConnection({
         host        : 'localhost',
         user        : 'chat',
         password    : 'pass',
         database    : 'chatapp'
-    
     })
 
     try {
+        let response = []
         connection.connect()
         connection.query('select username, message, time from messages;', function(err, result, fields) {
-            if (err) { 
-                throw err
-            }
-            Object.keys(result).forEach(function(key) {
-                let row = result[key];
-                let message = {
+
+            Object.keys(result).forEach(function(i) {
+                let row = result[i]
+                
+                response[i] = {
                     'username' : row.username,
                     'message' : row.message,
                     'time' : row.time
                 }
-                //console.log(message)
-                response.push(message)
-              });
+            })
+            res.json(response)
         })
 
     } catch (error){
         console.error(error)
+        res.sendStatus(500)
 
     } finally {
         connection.end()
     }
-
-    console.log(response)
-
-    res.json(response)
 })
 
 // AJAX for sending message
 app.post('/newmessage', (req, res) => {
-    messages.push(req.body['message'])
+    let message = req.body['message']
+    let name = req.body['name']
+    const connection = mysql.createConnection({
+        host        : 'localhost',
+        user        : 'chat',
+        password    : 'pass',
+        database    : 'chatapp'
+    })
+
+    try {
+        let response = []
+        connection.connect()
+        connection.query('insert into messages (username,message) values ("' + name +'","' + message + '")', function(err, result, fields) {
+        })
+    } catch (error){
+        console.error(error)
+        res.sendStatus(500)
+
+    } finally {
+        connection.end()
+    }
     res.sendStatus(200)
 })
 
