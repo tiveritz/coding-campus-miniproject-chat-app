@@ -12,22 +12,22 @@ app.use(express.urlencoded({ extended: true })) // Get data from body
 var path = require('path');
 
 // Global application variables
-var username = ''
 var messages = []
 
-
-// GET to '/' automatically serve index.html
-
-// Process login form
-app.post('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './public', 'chat.html'));
+// Login
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, './public', 'login.html'));
     username = req.body.name
 })
 
-// AJAX for chat
+// Chat
+app.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, './public', 'chat.html'));
+})
+
+// AJAX for chat data
 app.get('/chatdata', (req, res) => {
     let response  = {
-        name : username,
         messages : messages
     }
     res.json(response)
@@ -42,5 +42,5 @@ app.post('/newmessage', (req, res) => {
 
 // Start server
 app.listen(port, () => {
-    console.log(`Example app listening at http:// localhost:${port}`)
+    console.log(`Example app listening at http://localhost:${port}`)
 })

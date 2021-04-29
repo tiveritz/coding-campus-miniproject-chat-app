@@ -2,6 +2,10 @@
 refreshChatData();
 writeTimeToDOM()
 
+let username = sessionStorage.getItem('username')
+document.querySelector('#name').innerHTML = username
+
+
 // Refresh chat and time periodically
 window.setInterval(function() {
     writeTimeToDOM()
@@ -29,7 +33,6 @@ function refreshChatData() {
     fetch('http://localhost:3000/chatdata')
     .then(response => response.json())
     .then(function(data) {
-        document.querySelector('#name').innerHTML = data['name']
         document.querySelector('#messages').innerHTML = ''
         addMessagesToDOM(data['messages'])
     })
