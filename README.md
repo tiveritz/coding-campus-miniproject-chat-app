@@ -17,3 +17,4 @@ Unser neuer Kunde wünscht sich eine Chat-Applikation für die interne Kommunika
 node==v16.0.0<br>
 express==4.17.1<br>
 cors==2.8.5<br>
+mysql==2.18.1<br>

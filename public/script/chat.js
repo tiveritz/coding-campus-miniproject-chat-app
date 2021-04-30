@@ -34,7 +34,7 @@ function refreshChatData() {
     .then(response => response.json())
     .then(function(data) {
         document.querySelector('#messages').innerHTML = ''
-        addMessagesToDOM(data['messages'])
+        addMessagesToDOM(data)
     })
 }
 
@@ -42,7 +42,7 @@ function addMessagesToDOM(messages) {
     for (i = 0; i < messages.length; i++) {
         var msgContainer = document.createElement("div")
         msgContainer.className ="msg-row msg-sent"
-        var content = document.createTextNode(messages[i])
+        var content = document.createTextNode(messages[i]['message'])
         msgContainer.appendChild(content)
         document.querySelector('#messages').appendChild(msgContainer)
     }
@@ -53,7 +53,8 @@ function addMessagesToDOM(messages) {
 // of submit
 function postMessage() {
     var message = {
-        "message" : document.querySelector('#msg').value
+        "message" : document.querySelector('#msg').value,
+        "name" : username
     }
 
     fetch('http://localhost:3000/newmessage', {
